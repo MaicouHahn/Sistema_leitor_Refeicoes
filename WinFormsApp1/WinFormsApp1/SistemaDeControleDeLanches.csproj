@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>articles_document_pen_pages_icon_251459.ico</ApplicationIcon>
+    <BaseOutputPath>C:\Users\Zeturiell\Desktop\Release</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="articles_document_pen_pages_icon_251459.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.2.6" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
