@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CNedJlRb/orhBuQdXuVCSQX6DSPRdkzdM3DnGKEp2sRg4cMn+kLMZCyEwXnqss1DtKtqbeJjLh6f3QSeAbNBXA==",
+  "dgSpecHash": "2vaDP4LKiFvXqD0iCcwLZtEMSYOfJrHNskJiZkzWkE0xtcP/QUbQMCYSh2Dp91ncsM0wPikdwudjxBctGHrBWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Zeturiell\\source\\repos\\WinFormsApp1\\WinFormsApp1\\SistemaDeControleDeLanches.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,9 @@
     "C:\\Users\\Zeturiell\\.nuget\\packages\\runtime.native.system.io.ports\\7.0.0\\runtime.native.system.io.ports.7.0.0.nupkg.sha512",
     "C:\\Users\\Zeturiell\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\7.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.7.0.0.nupkg.sha512",
     "C:\\Users\\Zeturiell\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\7.0.0\\runtime.osx-x64.runtime.native.system.io.ports.7.0.0.nupkg.sha512",
-    "C:\\Users\\Zeturiell\\.nuget\\packages\\system.io.ports\\7.0.0\\system.io.ports.7.0.0.nupkg.sha512"
+    "C:\\Users\\Zeturiell\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Zeturiell\\.nuget\\packages\\system.io.ports\\7.0.0\\system.io.ports.7.0.0.nupkg.sha512",
+    "C:\\Users\\Zeturiell\\.nuget\\packages\\system.management\\7.0.1\\system.management.7.0.1.nupkg.sha512"
   ],
   "logs": []
 }

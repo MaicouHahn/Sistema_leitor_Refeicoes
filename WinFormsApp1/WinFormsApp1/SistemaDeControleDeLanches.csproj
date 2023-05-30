@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>articles_document_pen_pages_icon_251459.ico</ApplicationIcon>
-    <BaseOutputPath>C:\Users\Zeturiell\Desktop\Release</BaseOutputPath>
+    <BaseOutputPath>C:\Users\Zeturiell\Desktop\Release\release2.0</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.2.6" />
     <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+    <PackageReference Include="System.Management" Version="7.0.1" />
   </ItemGroup>
 
 </Project>

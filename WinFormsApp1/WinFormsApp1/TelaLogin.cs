@@ -19,30 +19,18 @@ namespace WinFormsApp1
             {
                 TelaUsuarioADM telaUsuarioADM = new TelaUsuarioADM();
                 telaUsuarioADM.Show();
+                usuarioTextBox.Text = "";
+                senhaTextBox.Text = "";
             }
             else
             {
 
                 TelaUsuarioComum telaUsuarioComum = new TelaUsuarioComum();
                 telaUsuarioComum.Show();
+                usuarioTextBox.Text = "";
+                senhaTextBox.Text = "";
             }
         }
 
-        private void Usuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usuarioTextBox_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void senhaTextBox_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void Senha_Click(object sender, EventArgs e)
-        {
-        }
     }
 }

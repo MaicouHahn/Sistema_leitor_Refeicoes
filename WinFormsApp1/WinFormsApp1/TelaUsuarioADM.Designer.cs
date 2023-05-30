@@ -62,9 +62,12 @@
             tokenCadastroTextBox = new TextBox();
             Editar_Cadastro = new TabPage();
             panel2 = new Panel();
+            button7 = new Button();
+            groupBox1 = new GroupBox();
+            button4 = new Button();
+            CarregarInfo = new Button();
             label12 = new Label();
             comboBox2 = new ComboBox();
-            CarregarInfo = new Button();
             label6 = new Label();
             editarCadastroSobrenomeTextBox = new TextBox();
             button2 = new Button();
@@ -79,6 +82,10 @@
             editarMatriculaTextBox = new TextBox();
             editarTokenTextBox = new TextBox();
             Excluir_Cadastro = new TabPage();
+            button8 = new Button();
+            excluirMatriculaTextBox = new TextBox();
+            label16 = new Label();
+            button9 = new Button();
             button6 = new Button();
             excluirTokenTextBox = new TextBox();
             label11 = new Label();
@@ -97,6 +104,7 @@
             panel1.SuspendLayout();
             Editar_Cadastro.SuspendLayout();
             panel2.SuspendLayout();
+            groupBox1.SuspendLayout();
             Excluir_Cadastro.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
@@ -113,7 +121,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(359, 337);
             tabControl1.TabIndex = 0;
-        
             // 
             // Listagem
             // 
@@ -137,7 +144,6 @@
             contadordeTickets.ReadOnly = true;
             contadordeTickets.Size = new Size(100, 23);
             contadordeTickets.TabIndex = 4;
-          
             // 
             // label15
             // 
@@ -155,7 +161,6 @@
             label14.Size = new Size(88, 15);
             label14.TabIndex = 2;
             label14.Text = "Total de tickets:";
-           
             // 
             // dataGridView1
             // 
@@ -173,7 +178,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(350, 272);
             dataGridView1.TabIndex = 1;
-
             // 
             // Nome_
             // 
@@ -410,9 +414,10 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(button7);
+            panel2.Controls.Add(groupBox1);
             panel2.Controls.Add(label12);
             panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(CarregarInfo);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(editarCadastroSobrenomeTextBox);
             panel2.Controls.Add(button2);
@@ -428,8 +433,49 @@
             panel2.Controls.Add(editarTokenTextBox);
             panel2.Location = new Point(0, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(604, 317);
+            panel2.Size = new Size(355, 317);
             panel2.TabIndex = 2;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(242, 190);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 19;
+            button7.Text = "ED Token";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(button4);
+            groupBox1.Controls.Add(CarregarInfo);
+            groupBox1.Location = new Point(46, 248);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(271, 43);
+            groupBox1.TabIndex = 18;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Buscar por";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(141, 14);
+            button4.Name = "button4";
+            button4.Size = new Size(103, 23);
+            button4.TabIndex = 17;
+            button4.Text = "Matricula";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_2;
+            // 
+            // CarregarInfo
+            // 
+            CarregarInfo.Location = new Point(28, 14);
+            CarregarInfo.Name = "CarregarInfo";
+            CarregarInfo.Size = new Size(94, 23);
+            CarregarInfo.TabIndex = 13;
+            CarregarInfo.Text = "Token";
+            CarregarInfo.UseVisualStyleBackColor = true;
+            CarregarInfo.Click += button4_Click;
             // 
             // label12
             // 
@@ -449,16 +495,6 @@
             comboBox2.Size = new Size(94, 23);
             comboBox2.TabIndex = 15;
             comboBox2.Text = "Selecione";
-            // 
-            // CarregarInfo
-            // 
-            CarregarInfo.Location = new Point(142, 248);
-            CarregarInfo.Name = "CarregarInfo";
-            CarregarInfo.Size = new Size(92, 23);
-            CarregarInfo.TabIndex = 13;
-            CarregarInfo.Text = "Carregar Info";
-            CarregarInfo.UseVisualStyleBackColor = true;
-            CarregarInfo.Click += button4_Click;
             // 
             // label6
             // 
@@ -564,11 +600,15 @@
             editarTokenTextBox.Location = new Point(142, 189);
             editarTokenTextBox.Name = "editarTokenTextBox";
             editarTokenTextBox.ReadOnly = true;
-            editarTokenTextBox.Size = new Size(175, 23);
+            editarTokenTextBox.Size = new Size(94, 23);
             editarTokenTextBox.TabIndex = 4;
             // 
             // Excluir_Cadastro
             // 
+            Excluir_Cadastro.Controls.Add(button8);
+            Excluir_Cadastro.Controls.Add(excluirMatriculaTextBox);
+            Excluir_Cadastro.Controls.Add(label16);
+            Excluir_Cadastro.Controls.Add(button9);
             Excluir_Cadastro.Controls.Add(button6);
             Excluir_Cadastro.Controls.Add(excluirTokenTextBox);
             Excluir_Cadastro.Controls.Add(label11);
@@ -580,6 +620,42 @@
             Excluir_Cadastro.TabIndex = 3;
             Excluir_Cadastro.Text = "Excluir Cadastro";
             Excluir_Cadastro.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(138, 207);
+            button8.Name = "button8";
+            button8.Size = new Size(97, 23);
+            button8.TabIndex = 35;
+            button8.Text = "Procurar Matricula";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // excluirMatriculaTextBox
+            // 
+            excluirMatriculaTextBox.Location = new Point(140, 163);
+            excluirMatriculaTextBox.Name = "excluirMatriculaTextBox";
+            excluirMatriculaTextBox.Size = new Size(176, 23);
+            excluirMatriculaTextBox.TabIndex = 34;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(50, 163);
+            label16.Name = "label16";
+            label16.Size = new Size(57, 15);
+            label16.TabIndex = 33;
+            label16.Text = "Matricula";
+            // 
+            // button9
+            // 
+            button9.Location = new Point(241, 207);
+            button9.Name = "button9";
+            button9.Size = new Size(75, 23);
+            button9.TabIndex = 32;
+            button9.Text = "Excluir";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button6
             // 
@@ -640,7 +716,6 @@
             senhaTextBox.PasswordChar = '*';
             senhaTextBox.Size = new Size(155, 23);
             senhaTextBox.TabIndex = 9;
-            senhaTextBox.Text = "123";
             // 
             // Senha
             // 
@@ -657,7 +732,6 @@
             usuarioTextBox.Name = "usuarioTextBox";
             usuarioTextBox.Size = new Size(155, 23);
             usuarioTextBox.TabIndex = 7;
-            usuarioTextBox.Text = "Maicou";
             // 
             // Usuario
             // 
@@ -674,7 +748,7 @@
             Entrar.Name = "Entrar";
             Entrar.Size = new Size(75, 28);
             Entrar.TabIndex = 5;
-            Entrar.Text = "Entrar";
+            Entrar.Text = "Apagar";
             Entrar.UseVisualStyleBackColor = true;
             Entrar.Click += Entrar_Click;
             // 
@@ -695,6 +769,7 @@
             ClientSize = new Size(376, 361);
             Controls.Add(tabControl1);
             Name = "TelaUsuarioADM";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaUsuarioADM";
             tabControl1.ResumeLayout(false);
             Listagem.ResumeLayout(false);
@@ -706,6 +781,7 @@
             Editar_Cadastro.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            groupBox1.ResumeLayout(false);
             Excluir_Cadastro.ResumeLayout(false);
             Excluir_Cadastro.PerformLayout();
             tabPage1.ResumeLayout(false);
@@ -777,5 +853,12 @@
         private TextBox usuarioTextBox;
         private Label Usuario;
         private Button Entrar;
+        private GroupBox groupBox1;
+        private Button button4;
+        private Button button7;
+        private Button button8;
+        private TextBox excluirMatriculaTextBox;
+        private Label label16;
+        private Button button9;
     }
 }

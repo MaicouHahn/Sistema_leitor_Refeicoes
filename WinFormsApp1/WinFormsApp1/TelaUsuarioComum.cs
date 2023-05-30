@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinFormsApp1
+﻿namespace WinFormsApp1
 {
     public partial class TelaUsuarioComum : Form
     {
@@ -19,6 +9,7 @@ namespace WinFormsApp1
         public TelaUsuarioComum()
         {
             InitializeComponent();
+         
         }
         private void Listar_Click(object sender, EventArgs e)
         {
@@ -48,10 +39,11 @@ namespace WinFormsApp1
         {
             try
             {
-                Alerta alerta = new Alerta("Atualizado!");
-                Thread.Sleep(500);
-                alerta.Show();
+                
                 atualizarCamposDaJanelaPadrão();
+                Alerta alerta = new Alerta("Atualizado!");
+                alerta.Show();
+             
 
             }
             catch (Exception ex)

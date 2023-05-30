@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using MySqlConnector;
 using System.IO.Ports;
-
+using System.Management;
 namespace WinFormsApp1
 {
     internal class Conexao
     {
         private const string dadosDaConexao = "server=localhost;database=testetoken;user=root;password= ;";
         private MySqlConnection conexaoSql = new MySqlConnection(dadosDaConexao);
-      
-      
         public bool BuscarAdministrador(Administrador adm)
         {
             Administrador administrador = null;
@@ -123,8 +115,7 @@ namespace WinFormsApp1
             }
 
         }
-
-        public void Excluir(string token)
+        public void ExcluirPorToken(string token)
         {
             try
             {
@@ -133,6 +124,29 @@ namespace WinFormsApp1
                     conexaoSql.Open();
                     MySqlCommand comando = new MySqlCommand("DELETE FROM cadastro where token=@token", conexaoSql);
                     comando.Parameters.AddWithValue("@token", token);
+                    comando.ExecuteNonQuery();
+                    Alerta alerta = new Alerta("Cadastro Deletado!");
+                    alerta.Show();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Alerta alerta = new Alerta("Erro ao deletar!");
+                Console.WriteLine(ex.Message);
+                alerta.Show();
+            }
+            finally { conexaoSql.Close(); }
+        }
+        public void ExcluirPorMatricula(string matricula)
+        {
+            try
+            {
+                if (buscarPorMatricula(matricula) != null)
+                {
+                    conexaoSql.Open();
+                    MySqlCommand comando = new MySqlCommand("DELETE FROM cadastro where matricula=@matricula", conexaoSql);
+                    comando.Parameters.AddWithValue("@matricula", matricula);
                     comando.ExecuteNonQuery();
                     Alerta alerta = new Alerta("Cadastro Deletado!");
                     alerta.Show();
@@ -195,7 +209,7 @@ namespace WinFormsApp1
             try
             {
                 conexaoSql.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT * FROM cadastro WHERE token = @matricula", conexaoSql);
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM cadastro WHERE matricula = @matricula", conexaoSql);
                 comando.Parameters.AddWithValue("@matricula", matricula);
                 MySqlDataReader leitor = comando.ExecuteReader();
 
@@ -214,6 +228,7 @@ namespace WinFormsApp1
                 }
                 else
                 {
+                    
                     Alerta alerta = new Alerta("Não foi encontrado nenhum cadastro com essa matricula!");
                     alerta.Show();
                 }
@@ -231,7 +246,6 @@ namespace WinFormsApp1
 
             return cadastro;
         }
-
         public void updateCadastro(Cadastro cadastro)
         {
             try
@@ -262,12 +276,61 @@ namespace WinFormsApp1
             }
 
         }
+        public void updateCadastroPorMatricula(Cadastro cadastro)
+        {
+            try
+            {
+                conexaoSql.Open();
+                MySqlCommand comando = new MySqlCommand("UPDATE cadastro SET nome = @nome, sobrenome = @sobrenome, telefone = @telefone, email = @email, token = @token where matricula=@matricula", conexaoSql);
 
+                comando.Parameters.AddWithValue("@token", cadastro.token);
+                comando.Parameters.AddWithValue("@matricula", cadastro.matricula);
+                comando.Parameters.AddWithValue("@nome", cadastro.nome);
+                comando.Parameters.AddWithValue("@sobrenome", cadastro.sobrenome);
+                comando.Parameters.AddWithValue("@telefone", cadastro.telefone);
+                comando.Parameters.AddWithValue("@email", cadastro.email);
+
+                comando.ExecuteNonQuery();
+                Alerta alerta = new Alerta("Cadastro alterado!");
+                alerta.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Alerta alerta = new Alerta("Erro ao Atualizar!");
+                Console.WriteLine(ex.Message);
+                alerta.Show();
+            }
+            finally
+            {
+                conexaoSql.Close();
+            }
+
+        }
+        public string EncontrarPortaArduino()//metodo para buscar a porta do arduino no computador de forma automatica vai nos dispositivos e impressoras e procura pela porta que possui o nome arduino
+        {
+            string portaArduino = string.Empty;
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
+
+            foreach (ManagementObject port in searcher.Get())
+            {
+                string caption = port["Caption"].ToString();
+                if (caption.Contains("Arduino"))
+                {
+                    string[] split = caption.Split('(');
+                    portaArduino = split[1].Replace(")", "");
+                    break;
+                }
+            }
+
+            return portaArduino;
+        }
         public string lerPortaSerial()
         {
             string data = "";
-
-            using (SerialPort port = new SerialPort("COM5", 9600))//Porta com que esta conectada o arduino
+            string portaDoArduino = EncontrarPortaArduino();
+            using (SerialPort port = new SerialPort(portaDoArduino, 9600))//Porta com que esta conectada o arduino
             {
                 port.Encoding = Encoding.ASCII;
                 port.NewLine = "\n"; // Define o caractere de nova linha que indica o fim de uma leitura
@@ -293,7 +356,6 @@ namespace WinFormsApp1
 
             return data;
         }
-
         public void insertBancoPedidosDoDia(Cadastro cadastro)
         {
             try
@@ -309,13 +371,14 @@ namespace WinFormsApp1
 
                 Alerta alerta = new Alerta("Cadastro Efetuado");
                 alerta.Show();
-                Thread.Sleep(1000);
-                alerta.Hide();
+
+                Thread.Sleep(2000);
+                alerta.Close();
 
             }
             catch (Exception ex)
             {
-                Alerta alerta = new Alerta("Houve um Erro ao cadastrar seu Ticket!");
+                Alerta alerta = new Alerta("Houve um Erro ao cadastrar seu Token!");
                 Console.WriteLine(ex.Message);
             }
             finally
@@ -323,7 +386,6 @@ namespace WinFormsApp1
                 conexaoSql.Close();
             }
         }
-
         public List<CadastroPedidosDoDia> buscarBancoPedidosDoDia()
         {
             List<CadastroPedidosDoDia> cadastrosdodia = new List<CadastroPedidosDoDia>();
@@ -354,7 +416,6 @@ namespace WinFormsApp1
             }
             return cadastrosdodia;
         }
-
         public List<string> buscarBancoPedidosDoDia_Contato()
         {
             List<string> series = new List<string>();
@@ -383,7 +444,6 @@ namespace WinFormsApp1
             return series;
 
         }
-
         public void resetarBancoPedidosDiarios()
         {
             try

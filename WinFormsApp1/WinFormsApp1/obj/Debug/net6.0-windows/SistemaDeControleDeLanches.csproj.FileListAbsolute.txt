@@ -12,6 +12,16 @@ C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\net6.0-windo
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\net6.0-windows\runtimes\osx-x64\native\libSystem.IO.Ports.Native.dylib
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\net6.0-windows\runtimes\unix\lib\net6.0\System.IO.Ports.dll
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.IO.Ports.dll
+C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.exe
+C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.deps.json
+C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.runtimeconfig.json
+C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.dll
+C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.pdb
+C:\Users\Zeturiell\Desktop\Release\release2.0\Debug\net6.0-windows\SistemaDeControleDeLanches.exe
+C:\Users\Zeturiell\Desktop\Release\release2.0\Debug\net6.0-windows\SistemaDeControleDeLanches.deps.json
+C:\Users\Zeturiell\Desktop\Release\release2.0\Debug\net6.0-windows\SistemaDeControleDeLanches.runtimeconfig.json
+C:\Users\Zeturiell\Desktop\Release\release2.0\Debug\net6.0-windows\SistemaDeControleDeLanches.dll
+C:\Users\Zeturiell\Desktop\Release\release2.0\Debug\net6.0-windows\SistemaDeControleDeLanches.pdb
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\SistemaDeControleDeLanches.csproj.AssemblyReference.cache
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.Alerta.resources
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\WinFormsApp1.TelaLogin.resources
@@ -28,8 +38,3 @@ C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windo
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\SistemaDeControleDeLanches.pdb
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\SistemaDeControleDeLanches.genruntimeconfig.cache
 C:\Users\Zeturiell\source\repos\WinFormsApp1\WinFormsApp1\obj\Debug\net6.0-windows\ref\SistemaDeControleDeLanches.dll
-C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.exe
-C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.deps.json
-C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.runtimeconfig.json
-C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.dll
-C:\Users\Zeturiell\Desktop\Release\Debug\net6.0-windows\SistemaDeControleDeLanches.pdb

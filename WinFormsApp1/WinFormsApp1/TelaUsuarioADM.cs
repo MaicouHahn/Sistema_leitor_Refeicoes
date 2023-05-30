@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
-namespace WinFormsApp1
+﻿namespace WinFormsApp1
 {
     public partial class TelaUsuarioADM : Form
     {
@@ -50,7 +39,7 @@ namespace WinFormsApp1
         {
             try
             {
-                conexao.Excluir(excluirTokenTextBox.Text);
+                conexao.ExcluirPorToken(excluirTokenTextBox.Text);
             }
             catch (Exception ex)
             {
@@ -74,6 +63,7 @@ namespace WinFormsApp1
                     cadastro = conexao.buscarPorToken(editarTokenTextBox.Text);
                     if (cadastro != null)
                     {
+                        limparCampos();
                         editarTokenTextBox.Text = cadastro.token;
                         editarCadastroNomeTextBox.Text = cadastro.nome;
                         editarCadastroSobrenomeTextBox.Text = cadastro.sobrenome;
@@ -81,23 +71,25 @@ namespace WinFormsApp1
                         editarTelefoneTextBox.Text = cadastro.telefone;
                         editarMatriculaTextBox.Text = cadastro.matricula;
                         comboBox2.Text = cadastro.serie;
-
+                    }
+                    else
+                    {
+                        limparCampos();
                     }
                 }
 
             }
             catch (Exception ex)
             {
-                Alerta Alerta = new Alerta("Erro, Token não encontrado!" + ex.Message);
-                Alerta.Show();
+                Console.WriteLine(ex.Message);
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)//Botão Editar
         {
             try
             {
+
                 cadastro.nome = editarCadastroNomeTextBox.Text;
                 cadastro.sobrenome = editarCadastroSobrenomeTextBox.Text;
                 cadastro.email = editarEmailTextBox.Text;
@@ -107,10 +99,11 @@ namespace WinFormsApp1
 
                 if (conexao != null)
                 {
-                    conexao.updateCadastro(cadastro);
-                    limparCampos();
+                    conexao.updateCadastroPorMatricula(cadastro);
+
                 }
 
+                limparCampos();
 
             }
             catch (Exception ex)
@@ -120,6 +113,7 @@ namespace WinFormsApp1
                 alerta.Show();
             }
         }
+
         public void limparCampos()//Só um metodo para limpar os campos de digitação
         {
             editarCadastroNomeTextBox.Text = "";
@@ -154,8 +148,6 @@ namespace WinFormsApp1
             contadordeTickets.Text = ticketsTotais.ToString();
 
         }
-
-
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -195,17 +187,98 @@ namespace WinFormsApp1
         }
         private void Entrar_Click(object sender, EventArgs e)
         {
-            if (usuarioTextBox.Text == null || senhaTextBox.Text == null)
-            {
-                Alerta alerta = new Alerta("Login ou Senha invalidos!");
-                alerta.Show();
-                Thread.Sleep(1000);
-            }
+
             if (conexao.BuscarAdministrador(new Administrador(usuarioTextBox.Text, senhaTextBox.Text)))
             {
                 conexao.resetarBancoPedidosDiarios();
             }
-            
+            else
+            {
+                Alerta alerta = new Alerta("Login ou Senha invalidos!");
+            }
+
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                cadastro = conexao.buscarPorMatricula(editarMatriculaTextBox.Text);
+                if (cadastro != null)
+                {
+
+                    limparCampos();
+                    editarTokenTextBox.Text = cadastro.token;
+                    editarCadastroNomeTextBox.Text = cadastro.nome;
+                    editarCadastroSobrenomeTextBox.Text = cadastro.sobrenome;
+                    editarEmailTextBox.Text = cadastro.email;
+                    editarTelefoneTextBox.Text = cadastro.telefone;
+                    editarMatriculaTextBox.Text = cadastro.matricula;
+                    comboBox2.Text = cadastro.serie;
+
+                }
+                else
+                {
+                    limparCampos();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            Alerta alerta = new Alerta("Passe o Token na leitora ");
+            alerta.Show();
+            string leitura = conexao.lerPortaSerial();
+            if (leitura != null)
+            {
+                if (conexao.buscarPorToken(leitura) != null)
+                {
+                    alerta.Hide();
+                    Alerta alerta2 = new Alerta("Token ja cadastrado!");
+                    alerta2.Show();
+                }
+                else
+                {
+                    editarTokenTextBox.Text = leitura;
+                    alerta.Hide();
+                }
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (conexao.buscarPorMatricula(excluirMatriculaTextBox.Text) != null)
+            {
+                Alerta Alerta = new Alerta("Cadastro Encontrado");
+
+            }
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (conexao.buscarPorMatricula(excluirMatriculaTextBox.Text) != null)
+            {
+                Alerta Alerta = new Alerta("Cadastro Encontrado");
+                Alerta.Show();
+
+                conexao.ExcluirPorMatricula(excluirMatriculaTextBox.Text);
+            }
+            else
+            {
+                Alerta Alerta = new Alerta("Cadastro Não Encontrado");
+                Alerta.Show();
+
+            }
         }
     }
 }
