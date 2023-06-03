@@ -97,11 +97,20 @@
                 cadastro.telefone = editarTelefoneTextBox.Text;
                 cadastro.token = editarTokenTextBox.Text;
 
-                if (conexao != null)
+                if (conexao.buscarPorToken(cadastro.token) != null)
                 {
-                    conexao.updateCadastroPorMatricula(cadastro);
+                    conexao.updateCadastroPorToken(cadastro);
 
                 }
+                else if (conexao.buscarPorMatricula(cadastro.matricula) != null)
+                {
+                    conexao.updateCadastroPorMatricula(cadastro);
+                }
+                else
+                {
+                    Alerta alerta = new Alerta("Digite um Cadastro valido!");
+                }
+
 
                 limparCampos();
 

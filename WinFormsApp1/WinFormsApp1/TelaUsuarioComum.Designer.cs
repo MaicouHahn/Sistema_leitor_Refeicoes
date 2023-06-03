@@ -218,7 +218,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(368, 505);
             Controls.Add(tabControl1);
+            MaximumSize = new Size(384, 544);
+            MinimumSize = new Size(384, 544);
             Name = "TelaUsuarioComum";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaUsuarioComum";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabControl1.ResumeLayout(false);

@@ -53,7 +53,6 @@
             Usuario.Size = new Size(47, 15);
             Usuario.TabIndex = 1;
             Usuario.Text = "Usuario";
-           
             // 
             // usuarioTextBox
             // 
@@ -61,7 +60,6 @@
             usuarioTextBox.Name = "usuarioTextBox";
             usuarioTextBox.Size = new Size(155, 23);
             usuarioTextBox.TabIndex = 2;
-          
             // 
             // senhaTextBox
             // 
@@ -70,7 +68,6 @@
             senhaTextBox.PasswordChar = '*';
             senhaTextBox.Size = new Size(155, 23);
             senhaTextBox.TabIndex = 4;
-        
             // 
             // Senha
             // 
@@ -80,7 +77,6 @@
             Senha.Size = new Size(39, 15);
             Senha.TabIndex = 3;
             Senha.Text = "Senha";
-            
             // 
             // TelaLogin
             // 
@@ -92,6 +88,8 @@
             Controls.Add(usuarioTextBox);
             Controls.Add(Usuario);
             Controls.Add(Entrar);
+            MaximumSize = new Size(269, 237);
+            MinimumSize = new Size(269, 237);
             Name = "TelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

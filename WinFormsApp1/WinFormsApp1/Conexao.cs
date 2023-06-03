@@ -246,19 +246,19 @@ namespace WinFormsApp1
 
             return cadastro;
         }
-        public void updateCadastro(Cadastro cadastro)
+        public void updateCadastroPorToken(Cadastro cadastro)
         {
             try
             {
                 conexaoSql.Open();
-                MySqlCommand comando = new MySqlCommand("UPDATE cadastro SET nome = @nome, sobrenome = @sobrenome, telefone = @telefone, email = @email WHERE token = @token", conexaoSql);
+                MySqlCommand comando = new MySqlCommand("UPDATE cadastro SET nome = @nome, sobrenome = @sobrenome, telefone = @telefone,matricula=@matricula,email = @email WHERE token = @token", conexaoSql);
 
                 comando.Parameters.AddWithValue("@token", cadastro.token);
                 comando.Parameters.AddWithValue("@nome", cadastro.nome);
                 comando.Parameters.AddWithValue("@sobrenome", cadastro.sobrenome);
                 comando.Parameters.AddWithValue("@telefone", cadastro.telefone);
                 comando.Parameters.AddWithValue("@email", cadastro.email);
-
+                comando.Parameters.AddWithValue("@matricula", cadastro.matricula);
                 comando.ExecuteNonQuery();
                 Alerta alerta = new Alerta("Cadastro alterado!");
                 alerta.Show();

@@ -9,7 +9,7 @@
         public TelaUsuarioComum()
         {
             InitializeComponent();
-         
+
         }
         private void Listar_Click(object sender, EventArgs e)
         {
@@ -39,11 +39,11 @@
         {
             try
             {
-                
+
                 atualizarCamposDaJanelaPadrão();
                 Alerta alerta = new Alerta("Atualizado!");
                 alerta.Show();
-             
+
 
             }
             catch (Exception ex)

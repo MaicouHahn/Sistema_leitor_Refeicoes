@@ -768,6 +768,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(376, 361);
             Controls.Add(tabControl1);
+            MaximumSize = new Size(392, 400);
+            MinimumSize = new Size(392, 400);
             Name = "TelaUsuarioADM";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaUsuarioADM";
